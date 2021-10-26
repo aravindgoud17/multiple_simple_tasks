@@ -1,0 +1,93 @@
+<div>
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+    <label for="first-name">First Name: </label>
+    <input id="first-name" type="text" formControlName="firstName" [(ngModel)]="filterlist">
+
+    <label for="last-name">Age: </label>
+    <input id="last-name" type="number" formControlName="age">
+    <button type="submit" [disabled]="!profileForm.valid">submit</button>
+
+  </form>
+  <br>
+  <div>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>USER NAME</th>
+        <th>EMAIL</th>
+        <th>PHONE</th>
+        <th>WEBSITE</th>
+        <!-- <th style="color: green;">Edit</th>
+          <th style="color: red;">delete</th> -->
+      </tr>
+
+      <tr [routerLink]="['/fulldetails',item.id]" (click)="myfun(item)" *ngFor="let item of datas |filter:filterlist">
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.username}}</td>
+        <td>{{item.phone}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.website}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+
+<!-- <div class="row">
+  <form>
+    <div class="col" [formGroup]="profileForm1" (Submit)="searchUser()">
+      <input type="search" formControlName="searchbox" placeholder="search github users">
+    </div>
+    <h1>{{gitquerylist}}</h1>
+    <div>
+      <button type="submit" >search</button>
+    </div>
+  </form>
+
+  <div>
+    <p>hello</p>
+    {{githubprofile |json}}
+  </div>
+</div> -->
+
+<div>
+  <form [formGroup]="profileForm1" (ngSubmit)="searchUser()" >
+    <div>
+      <input type="search" placeholder="github user" formControlName="box" [(ngModel)]="filterlist1">
+    </div>
+
+    <div>
+      <button type="submit">search</button>
+    </div>
+
+  </form>
+
+
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>AVATAR</th>
+      <th>USER NAME</th>
+      <!-- <th>FOLLOWERS</th>
+      <th>FOLLOWING</th>
+      <th>REPOS URL</th>
+      <th>VIEWMORE</th> -->
+      <th>GET MORE DETAILS</th>
+    </tr>
+    <tr *ngFor="let info of information |filter:filterlist1 | paginate: { itemsPerPage: 5, currentPage: p }">
+      <td>{{info.id}}</td>
+      <td><img [src]="info.avatar_url"></td>
+      <td>{{info.login}}</td>
+      <td><button [routerLink]="['/getdetails',info.login]" (click)="moredetails(info)">VIEW MORE</button></td>
+      <!-- <td><a href="{{info.followers_url}}"></a></td> -->
+      <!-- <td>{{info.following_url}}</td> -->
+      <!-- <td>{{info.repos_url}}</td> -->
+
+    </tr>
+  </table>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+</div>
