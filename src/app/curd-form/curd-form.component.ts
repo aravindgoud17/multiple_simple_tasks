@@ -44,7 +44,7 @@ export class CurdFormComponent implements OnInit {
   constructor(private graphdata: GraphsService, private _router: Router) {
 
   }
-
+// PARAM LOGIC
   myfun(item: any) {
     // alert("hello")
     this._router.navigate(['/fulldetails', item.id]);
@@ -54,7 +54,7 @@ export class CurdFormComponent implements OnInit {
   searchUser() {
   }
 
-  
+  // param logic
   moredetails(info:any){
     // alert("working")
     this._router.navigate(['/getdetails', info.login]);
@@ -63,6 +63,9 @@ export class CurdFormComponent implements OnInit {
 
 
   ngOnInit(): void {
+    
+    
+    
 
     this.graphdata.getprofile().subscribe((data1: any) => {
 
@@ -76,6 +79,13 @@ export class CurdFormComponent implements OnInit {
       this.datas = data;
 
     })
+  }
+
+  getpostjsonData(){
+   this.graphdata.jsonGetPostData().subscribe((data2:any)=>{
+    console.log("fake json geting post data",data2);
+    
+   })
   }
 
 }

@@ -77,7 +77,7 @@
       <th>VIEWMORE</th> -->
       <th>GET MORE DETAILS</th>
     </tr>
-    <tr *ngFor="let info of information |filter:filterlist1 | paginate: { itemsPerPage: 5, currentPage: p }">
+    <tr *ngFor="let info of information |filter:filterlist1 | paginate: { itemsPerPage: 6, currentPage: p }">
       <td>{{info.id}}</td>
       <td><img [src]="info.avatar_url"></td>
       <td>{{info.login}}</td>
@@ -90,4 +90,9 @@
   </table>
   <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
+</div>
+
+
+<div>
+  <button type="submit" (click)="getpostjsonData()">get json post data</button>
 </div>

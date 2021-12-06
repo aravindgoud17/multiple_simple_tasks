@@ -1,0 +1,29 @@
+
+<div>
+  <h1>run the json server file also then only u will get data</h1>
+</div><div class="container">        
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Firstname</th>
+          <th>age</th>
+          <th>Email</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of result">
+          <td>{{data.firstname}}</td>
+          <td>{{data.age}}</td>
+          <td>{{data.gmail}}</td>
+          <td><button routerLink="/forms/{{data.id}}" class="btn btn-primary btn-block" >Edit</button></td>
+          <td><button (click)="delete(data)" class="btn btn-danger btn-block">Delate</button></td>
+        </tr>
+       
+      </tbody>
+    </table>  
+  </div>
+  <!-- <button class="btn btn-outline-primary mb-2 mr-2" (click)="openVerticallyCentered(content)">Modal vertically centered</button> -->
+
+  

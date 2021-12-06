@@ -1,0 +1,31 @@
+<div class="container">
+    <h2>Basic Table</h2>
+    <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>            
+    <table class="table">
+      <thead>
+        <tr>
+            <th>ID</th>
+          <th>FIRST NAME</th>
+          <th>AGE</th>
+          <th>gender</th>
+          <th>GMAIL</th>
+          <th>PHN NO.</th>
+          <th>SELECT LIST</th>
+          <th>ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+       <tr *ngFor="let tablelist of tabledata">
+           <td>{{tablelist.id}}</td>
+           <td>{{tablelist.firstname}}</td>
+           <td>{{tablelist.age}}</td>
+           <td>{{tablelist.gender}}</td>
+           <td>{{tablelist.gmail}}</td>
+           <td>{{tablelist.phn}}</td>
+           <td>{{tablelist.selectlist}}</td>
+           <td style="display: flex; justify-content: space-between;"><button class="btn btn-primary" routerLink='/tableform/{{tablelist.id}}' >edit</button>
+          <button class="btn btn-danger" (click)="deletedata(tablelist)">delete</button></td>
+       </tr>
+      </tbody>
+    </table>
+  </div>

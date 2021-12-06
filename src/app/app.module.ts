@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ChartsModule } from 'ng2-charts';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChartssComponent } from './chartss/chartss.component';
@@ -13,6 +12,11 @@ import { FulldetailsComponent } from './fulldetails/fulldetails.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { GituserdetailsComponent } from './gituserdetails/gituserdetails.component';
+import { FormsExamplesComponent } from './forms-examples/forms-examples.component';
+import { CurdTaskComponent } from './curd-task/curd-task.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TabletaskComponent } from './task/tabletask/tabletask.component';
+import { TableformComponent } from './task/tableform/tableform.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { GituserdetailsComponent } from './gituserdetails/gituserdetails.compone
     ChartssComponent,
     CurdFormComponent,
     FulldetailsComponent,
-    GituserdetailsComponent
+    GituserdetailsComponent,
+    FormsExamplesComponent,
+    CurdTaskComponent,
+    TabletaskComponent,
+    TableformComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +37,9 @@ import { GituserdetailsComponent } from './gituserdetails/gituserdetails.compone
     ReactiveFormsModule,
     HttpClientModule,
     Ng2SearchPipeModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ReactiveFormsModule,
+    NgbModule,//this is model view for bootstrap
   ],
   providers: [GraphsService],
   bootstrap: [AppComponent]

@@ -1,0 +1,171 @@
+<h1>Reactive Forms</h1>
+
+<div class="container">
+  <!-- <div class="row"> -->
+
+
+  <form [formGroup]="formdetails"  >
+    <div class="form-group">
+      <div class="row">
+        <div class="col-12 col-lg-2 col-sm-12 col-xs-12">
+          <label for="fname">First Name</label>
+        </div>
+        <div class="col-12 col-lg-2 col-sm-12 col-xs-12">
+          <label for="age">:</label>
+        </div>
+        <div class="col-12 col-lg-6 col-sm-12 col-xs-12 ">
+
+          <input id="fname" type="text" formControlName="firstname" class="form-control" placeholder="enter ur name" [(ngModel)]="result.firstname">
+          <!-- <span
+        style="color: red;"
+        *ngIf="formdetails.get('firstname').hasError('required') && formdetails.get('firstname').touched "
+        >Email is required</span> -->
+        </div>
+      </div>
+      <!-- ----------------------------- -->
+      <div class="row">
+
+        <div class="col-12 col-lg-2 col-sm-12 col-xs-12">
+          <label for="age">age</label>
+        </div>
+        <div class="col-12 col-lg-2 col-sm-12 col-xs-12">
+          <label for="age">:</label>
+        </div>
+
+        <div class="col-12 col-lg-6 col-sm-12 col-xs-12 ">
+
+          <input id="age" type="number" formControlName="age" class="form-control" placeholder="enter ur age" [(ngModel)]="result.age">
+        </div>
+      </div>
+      <!-- ------------------------- -->
+      <div class="row">
+        <div class="col-12 col-lg-2 col-sm-12 col-xs-12">
+          <label for="gmail">gmail</label>
+        </div>
+        <div class="col-12 col-lg-2 col-sm-12 col-xs-12">
+          <label for="age">:</label>
+        </div>
+        <div class="col-12 col-lg-6 col-sm-12 col-xs-12 ">
+
+          <input id="gmail" type="email" formControlName="gmail" class="form-control" placeholder="enter ur gmail" [(ngModel)]="result.gmail">
+        </div>
+
+      </div>
+      <!-- ----------------------- -->
+      <div class="row">
+        <div class="col-12 col-lg-2 col-sm-12 col-xs-12">
+          <label for="phn">phone number</label>
+        </div>
+        <div class="col-12 col-lg-2 col-sm-12 col-xs-12">
+          <label for="age">:</label>
+        </div>
+
+        <div class="col-12 col-lg-6 col-sm-12 col-xs-12 ">
+
+          <input id="phn" type="number" formControlName="phn" class="form-control" placeholder="enter ur phone number" [(ngModel)]="result.phn">
+        </div>
+
+      </div>
+      <!-- ------------- radio btns---------------- -->
+      <div class="row">
+        <div class="col-12 col-lg-2 col-sm-12 col-xs-12">
+          <label>gender</label>
+        </div>
+        <div class="col-12 col-lg-2 col-sm-12 col-xs-12">
+          <label>:</label>
+        </div>
+        <div class="form-check" class="col-12 col-lg-2 col-sm-12 col-xs-12">
+          <input type="radio" class="form-check-input" id="radio1" name="gender" formControlName="gender" value="male" [(ngModel)]="result.gender" checked>
+          <label class="form-check-label" for="radio1">MALE</label>
+        </div>
+        <div class="form-check" class="col-12 col-lg-2 col-sm-12 col-xs-12">
+          <input type="radio" class="form-check-input" id="radio2" name="gender"formControlName="gender" value="female" [(ngModel)]="result.gender" checked>
+          <label class="form-check-label" for="radio2">FEMALE</label>
+        </div>
+        <div class="form-check" class="col-12 col-lg-2 col-sm-12 col-xs-12">
+          <input type="radio" class="form-check-input" id="radio3" name="gender" formControlName="gender" value="other"  [(ngModel)]="result.gender" checked>
+          <label class="form-check-label" for="radio3">OTHER</label>
+        </div>
+      </div>
+      <!-- -------------completed--- radio btns---------------- -->
+
+      <!-- ---------------selection----------- -->
+      <div class="row">
+        <div class="col-12">
+          <label for="sel1" class="form-label">Select list (select one)</label>
+          <select class="form-select" id="sel1" name="sellist1" multiple formControlName="selectlist" [(ngModel)]="result.selectlist" >
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+          </select>
+        </div>
+      </div>
+       <!-- ---------------selection completed----------- -->
+       <div id="date-picker-example" class="md-form md-outline input-with-post-icon datepicker">
+        <input placeholder="Select date" type="text" id="example" class="form-control">
+        <label for="example">Try me...</label>
+        <i class="fas fa-calendar input-prefix" tabindex=0></i>
+      </div>
+      <div class="sbt">
+        <button [disabled]="!formdetails.valid" (click)="updateNewData()"  class="btn btn-success">update</button>
+      </div>
+
+      <div class="sbt">
+        <button [disabled]="!formdetails.valid" (click)="onSubmit()"  class="btn btn-success">SUBMIT</button>
+      </div>
+
+
+
+
+
+    </div>
+  </form>
+
+  <div>
+    <table>
+      <tr>
+        <th>first Name</th>
+        <th>Age</th>
+        <th>Gmail</th>
+        <th>phn</th>
+        <th>edit</th>
+      </tr>
+      <tr>
+        <td>{{result.firstname}}</td>
+        <td>{{result.age}}</td>
+        <td>{{result.gmail}}</td>
+        <td>{{result.phn}}</td>
+        <DIV class="d-grid">
+          <button type="button" class="btn btn-primary btn-block">EDIT</button>
+        </DIV>
+
+      </tr>
+    </table>
+  </div>
+  <!-- </div> -->
+
+  <div>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>first Name</th>
+        <th>Age</th>
+        <th>Gmail</th>
+        <th>phn</th>
+        <th>edit</th>
+      </tr>
+      <tr *ngFor="let data of result">
+        <td>{{data.id}}</td>
+        <td>{{data.firstname}}</td>
+        <td>{{data.age}}</td>
+        <td>{{data.gmail}}</td>
+        <td>{{data.phn}}</td>
+        <DIV class="d-grid">
+          <button  (click)="deleteData(data)" class="btn btn-primary btn-block">Delete</button>
+        </DIV>
+
+      </tr>
+    </table>
+  </div>
+</div>
