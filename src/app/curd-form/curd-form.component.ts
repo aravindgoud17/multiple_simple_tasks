@@ -65,7 +65,7 @@ export class CurdFormComponent implements OnInit {
   ngOnInit(): void {
     
     
-    
+  
 
     this.graphdata.getprofile().subscribe((data1: any) => {
 
