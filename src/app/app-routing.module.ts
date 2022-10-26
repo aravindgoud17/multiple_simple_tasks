@@ -20,6 +20,9 @@ const routes: Routes = [
   {path:"tabletask",component:TabletaskComponent},
   {path:"tableform",component:TableformComponent},
   {path:"tableform/:id",component:TableformComponent},
+  { path: 'faculty', loadChildren: () => import('./faculty/faculty.module').then(m => m.FacultyModule) },
+  { path: 'customers', loadChildren: () => import('./customers/customers.module').then(m => m.CustomersModule) },
+  { path: 'owner', loadChildren: () => import('./owner/owner.module').then(m => m.OwnerModule) },
 ];
 
 @NgModule({

@@ -17,6 +17,8 @@ import { CurdTaskComponent } from './curd-task/curd-task.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TabletaskComponent } from './task/tabletask/tabletask.component';
 import { TableformComponent } from './task/tableform/tableform.component';
+import { OwnerRoutingModule } from './owner/owner-routing.module';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -28,10 +30,12 @@ import { TableformComponent } from './task/tableform/tableform.component';
     FormsExamplesComponent,
     CurdTaskComponent,
     TabletaskComponent,
-    TableformComponent
+    TableformComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
+    OwnerRoutingModule,
     AppRoutingModule,
     ChartsModule,
     ReactiveFormsModule,

@@ -11,6 +11,7 @@ export class TabletaskComponent implements OnInit {
 
   tabledata: any
   data: any;
+  row: any;
 
   constructor(private tableservice: CurdService, private _router: Router) { }
 
@@ -26,11 +27,12 @@ export class TabletaskComponent implements OnInit {
     })
   }
   deletedata(data: any) {
+   
     console.log(data.id, "ts id");
-    // alert("working")
     this.tableservice.deletedata(data).subscribe((data1) => {
       console.log(data1, "delete data ts file");
     })
+   
     this.getdata()
   }
   editdata(){
